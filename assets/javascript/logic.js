@@ -1,4 +1,3 @@
-
   var config = {
     apiKey: "AIzaSyDq5N-SMq7wv-gCn4CpntAh5Bf2NVwOF_I",
     authDomain: "train-time-e9250.firebaseapp.com",
@@ -17,7 +16,7 @@
     // Grabs user input
     var trainName = $("#train-name-input").val().trim();
     var trainDestination = $("#destination-input").val().trim();
-    var trainFirst = moment($("#first-input").val().trim(), "HH:mm-military time").format("X");
+    var trainFirst = moment($("#first-input").val().trim(), "HH:mm").format("X");
     var trainFrequency = $("#frequency-input").val().trim();
     
     // holding data
@@ -61,25 +60,25 @@
     console.log(trainFirst);
     console.log(trainFrequency);
 
-    // moment
+    // First Time (pushed back 1 year to make sure it comes before current time)
     var arrivalTime = moment.unix(trainFirst).format("HH:mm");
+    console.log(arrivalTime);
+
+    // Differences between times
+    var timeDiff = moment().diff(moment.unix(trainFrequency), "minutes");
+    console.log(timeDiff);
+
+    // time apart (remainder)
+    var tRemainder = timeDiff % trainFrequency;
+    console.log(tRemainder);
+
+    // minutes until train arrives 
+    var minutesAway = trainFrequency - tRemainder;
+    console.log(minutesAway);
+
  
-    var trainFrequency = moment().diff(moment.unix(trainFirst), "minutes");
-  // console.log();
-    
-    var remainder = moment().diff(moment.unix(trainFirst), "minutes") % trainFrequency;
-    console.log(remainder);
-    var tminutes = trainFrequency - remainder;
-
-    console.log(arrivalTime)
-    console.log(trainFrequency)
-    console.log(remainder)
-    console.log(tminutes)
-
     // Add each train's data into the table
 
   $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDestination + "</td><td>" + 
-   trainFirst + "</td><td>" + arrivalTime + "</td><td>" + trainFrequency + "</td><td>");
+  trainFrequency + "</td><td>" + arrivalTime + "</td><td>" + minutesAway + "</td><td>");
   });
-
-

@@ -11,6 +11,7 @@ Have fun!
 - HTML
 - CSS
 - Javascript
+- jQuery
 - Firebase
 
 # Contributers

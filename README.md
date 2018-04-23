@@ -1,11 +1,13 @@
 # Train-Time
 
-SMU week 7 assignment
+SMU Coding Bootcamp week 7 assignment
 
 # Getting Started
 Firebase application that uses user input to create a train scredule.
 
 Have fun!
+
+https://laurawilsone.github.io/train-time/
 
 # Built With
 - HTML

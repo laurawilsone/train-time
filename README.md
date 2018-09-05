@@ -3,7 +3,7 @@
 SMU Coding Bootcamp week 7 assignment
 
 # Getting Started
-Firebase application that uses user input to create a train scredule.
+Firebase application that uses user input to create a train schedule.
 
 Have fun!
 
